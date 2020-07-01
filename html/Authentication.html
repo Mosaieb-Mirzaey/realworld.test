@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mosaieb</title>
+    <!-- Import Ionicon icons & Google Fonts our Bootstrap theme relies on -->
+    <link href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Titillium+Web:700|Source+Serif+Pro:400,700|Merriweather+Sans:400,700|Source+Sans+Pro:400,300,600,700,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
+    <!-- Import the custom Bootstrap 4 theme from our hosted CDN -->
+    <link rel="stylesheet" href="//demo.productionready.io/main.css">
+</head>
+<body>
+
+<nav class="navbar navbar-light">
+    <div class="container">
+        <a class="navbar-brand" href="../index.html">conduit</a>
+        <ul class="nav navbar-nav pull-xs-right">
+            <li class="nav-item">
+                <!-- Add "active" class when you're on that page" -->
+                <a class="nav-link" href="../index.html">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="Authentication.html">
+                    <i class="ion-compose"></i>&nbsp;Sign in
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="Registration.html">Sign up</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+<!--    *************       html     **************-->
+
+<div class="auth-page">
+    <div class="container page">
+        <div class="row">
+            <div class="col-md-6 offset-md-3 col-xs-12">
+                <h1 class="text-xs-center">Sign in</h1>
+                <p class="text-xs-center"><a href="Registration.html" class="">Need an account?</a></p>
+                <ul class="error-messages" style="display: none">
+                    <li></li>
+                </ul>
+                <form>
+                    <fieldset class="form-group">
+                        <input type="text" placeholder="Email" value="" class="form-control form-control-lg emailLogin">
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <input type="password" placeholder="Password" value="" class="form-control form-control-lg passLogin">
+                    </fieldset>
+                    <button type="button" class="btn btn-lg btn-primary pull-xs-right loginBtn">Sign in</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="module" src="../moduleJs/authentication.js"></script>
+</body>
+</html>
