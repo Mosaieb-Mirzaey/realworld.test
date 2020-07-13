@@ -1,6 +1,31 @@
-import * as utils from "../utils.js";
-import * as getUsername from "./getUsername.js";
 
+function getToken() {
+    return window.localStorage.getItem('id_token');
+}
+
+var users;
+
+async function getUsername() {
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    myHeaders.append("Authorization", "Token " + getToken());
+    return   fetch("http://realworld.test/api/user", {
+        method: 'GET',
+        headers: myHeaders,
+        redirect: 'follow'
+    });
+}
+
+async function getCurrentUser() {
+    try {
+        let response = await getUsername();
+        let result = await response.json();
+        users = result;
+        return users
+    } catch (error) {
+        console.log('error' + error)
+    }
+}
 
 var infoSetting;
 var inputImage = document.querySelector(".inputImage");
@@ -12,7 +37,7 @@ var logOutBtn = document.querySelector(".logOutBtn");
 
 
 (async function getUserPage() {
-    let users = await getUsername.getCurrentUser();
+    let users = await getCurrentUser();
 
     if (users.user.username !== ""){
         document.querySelector("#setting > nav > div > ul > li:nth-child(2) > a").innerHTML = `<i class="ion-compose"></i>&nbsp;New Article`;
@@ -31,11 +56,11 @@ var logOutBtn = document.querySelector(".logOutBtn");
 
 updateBtn.addEventListener('click' , setting);
 async function updateSettingPage() {
-    let users = await getUsername.getCurrentUser();
+    let users = await getCurrentUser();
 
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
-    myHeaders.append("Authorization", "Token " + utils.getToken());
+    myHeaders.append("Authorization", "Token " + getToken());
 
     var raw = JSON.stringify({"user":{
                                          "email":inputEmail.value,

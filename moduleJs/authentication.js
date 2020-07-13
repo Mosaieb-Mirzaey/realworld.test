@@ -2,7 +2,14 @@
 
 // ************     Authentication      ************
 
-import * as utils from "../utils";
+function saveToken (token) {
+    window.localStorage.setItem('id_token', token);
+}
+
+function destroyToken() {
+    window.localStorage.removeItem('id_token');
+}
+
 
 var er1;
 var a;
@@ -40,8 +47,8 @@ async function login(event){
             er1 = result;
             if (result.user){
                 errorMessages.style.display = "none";
-                utils.destroyToken();
-                utils.saveToken(result.user.token);
+                destroyToken();
+                saveToken(result.user.token);
                 alert('success');
                 window.location.replace("http://mosaieb.test/index.html");
             }else {

@@ -1,4 +1,8 @@
-import * as utils from '../utils.js';
+
+function getToken() {
+    return window.localStorage.getItem('id_token');
+}
+
 
 var users;
 
@@ -8,7 +12,7 @@ var users;
 
             var myHeaders = new Headers();
             myHeaders.append("Content-Type", "application/json");
-            myHeaders.append("Authorization", "Token " + utils.getToken());
+            myHeaders.append("Authorization", "Token " + getToken());
             return   fetch("http://realworld.test/api/user", {
                 method: 'GET',
                 headers: myHeaders,
