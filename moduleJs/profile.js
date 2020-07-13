@@ -30,7 +30,14 @@ async function getCurrentUser() {
     }
 }
 
-
+let authorUrl;
+let currentPage = window.location.href;
+let params = new URLSearchParams(currentPage);
+let authorParam;
+for (authorParam of params) {
+     console.log(authorParam[1]);
+     authorUrl = authorParam[1];
+ }
 
 //   ########################  getProfile  ##########################
 
@@ -38,7 +45,6 @@ var profile;
 var listArticleInfo;
 
 async function getProfilePage() {
-    let users = await getCurrentUser();
 
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
@@ -51,7 +57,7 @@ async function getProfilePage() {
         redirect: 'follow'
     };
 
-    return fetch("http://realworld.test/api/profiles/"+users.user.username, requestOptions)
+    return fetch("http://realworld.test/api/profiles/"+authorUrl+"", requestOptions)
 }
 
 async function getProfile() {
@@ -85,16 +91,18 @@ async function listArticle() {
             headers: myHeaders,
         };
 
-        return fetch("http://realworld.test/api/articles?offset=0&limit=20&tag=&favorited=&author="+users.user.username+"", requestOptions)
+        return fetch("http://realworld.test/api/articles?offset=0&limit=20&tag=&favorited=&author="+authorUrl+"", requestOptions)
 
     }
 }
+
 
 async function setting() {
     try {
         let response = await listArticle();
         let result = await response.json();
         listArticleInfo = result;
+        console.log(listArticleInfo)
         return listArticleInfo
     } catch (error) {
         console.log('error' + error)
@@ -192,19 +200,51 @@ function favoritePost(slug , btnI) {
 //  ##############################   General Profile   #############################
 let i , b;
 var favoriteBtnColorUser;
+let followUser = document.querySelector(".FollowUser");
 
 (async function () {
+    await getCurrentUser();
     await getProfile();
-    if (profile.profile.username !== ''){
-        document.querySelector(".loading").style.display="initial";
-        document.querySelector(".profileName1").innerHTML = "<a class='nav-link router-link-exact-active active' href='../html/profile.html'>"+profile.profile.username+" </a>";
-        let avatar =document.querySelector(".user-img");
-        avatar.outerHTML = `<img src="${profile.profile.image}" class="user-img" style="width: 100px; height: 100px">`;
-        document.querySelector(".profileName2").textContent = profile.profile.username;
-        document.querySelector(".userInfoP").textContent = profile.profile.bio;
-        document.querySelector(".FollowUser").outerHTML = `<a href="../html/setting.html" class="btn btn-sm btn-outline-secondary action-btn"><i class="ion-gear-a"></i> Edit Profile Settings</a>`;
+    await setting();
 
-        let articleInfo = await setting();
+    if (users.user.username !== ''){
+
+
+        if (users.user.username == profile.profile.username){
+
+            document.querySelector(".loading").style.display="initial";
+            document.querySelector(".profileName1").innerHTML = "<a class='nav-link router-link-exact-active active' href='../html/profile.html?author="+users.user.username+"'>"+users.user.username+" </a>";
+            document.querySelector(".newArticle").setAttribute("href","newArticle.html?author="+users.user.username+"");
+            let avatar =document.querySelector(".user-img");
+            avatar.outerHTML = `<img src="${profile.profile.image}" class="user-img" style="width: 100px; height: 100px">`;
+            document.querySelector(".profileName2").textContent = profile.profile.username;
+            document.querySelector(".userInfoP").textContent = profile.profile.bio;
+            document.querySelector(".FollowUser").outerHTML = `<a href="../html/setting.html" class="btn btn-sm btn-outline-secondary action-btn"><i class="ion-gear-a"></i> Edit Profile Settings</a>`;
+
+        }else {
+            document.querySelector(".loading").style.display="initial";
+            document.querySelector(".profileName1").innerHTML = "<a class='nav-link router-link-exact-active' href='../html/profile.html?author="+users.user.username+"'>"+users.user.username+" </a>";
+
+
+            let avatar =document.querySelector(".user-img");
+            avatar.outerHTML = `<img src="${profile.profile.image}" class="user-img" style="width: 100px; height: 100px">`;
+            document.querySelector(".profileName2").textContent = profile.profile.username;
+            document.querySelector(".userInfoP").textContent = profile.profile.bio;
+            followUser.outerHTML = `
+                    <a href="../html/setting.html" class="btn btn-sm btn-outline-secondary action-btn FollowUser">
+                    <i class="ion-plus-round"></i>
+                    &nbsp;Follow Eric Simons
+                    </a>`;
+        }
+
+        let favoriteArticlesTab =document.querySelector('.favoriteArticlesTab');
+        favoriteArticlesTab.innerHTML = `
+        <a class="nav-link favoriteArticles" href="../html/userArticleFavorited.html?author=${authorUrl}">
+        Favorited Articles
+        </a>`;
+
+
+
         let articlesToggle =document.querySelector('.articles-toggle').nextElementSibling;
 
 
@@ -240,10 +280,10 @@ var favoriteBtnColorUser;
             articlesToggle.innerHTML += `
                    <div class="article-preview">
                         <div class="article-meta">
-                            <a href="http://mosaieb.test/html/profile.html" class="router-link-exact-active router-link-active">
+                            <a href="http://mosaieb.test/html/profile.html?author=${listArticleInfo.articles[i].author.username}" class="router-link-exact-active router-link-active">
                                 <img src="${listArticleInfo.articles[i].author.image}"></a>
                             <div class="info">
-                            <a href="http://mosaieb.test/html/profile.html">
+                            <a href="http://mosaieb.test/html/profile.html?author=${listArticleInfo.articles[i].author.username}">
                                 ${listArticleInfo.articles[i].author.username}
                             </a>
                             <span class="date">${timeArticle}</span>
@@ -281,7 +321,9 @@ var favoriteBtnColorUser;
 
 
         document.querySelector(".loading").style.display="none";
+
     }
+
 })();
 
 //   ---------------------------    General Profile    --------------------------------

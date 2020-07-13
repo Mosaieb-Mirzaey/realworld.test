@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="//demo.productionready.io/main.css">
 </head>
 <body>
-<div id="setting">
+<div id="article">
     <nav class="navbar navbar-light">
         <div class="container">
             <a class="navbar-brand" href="../index.html">conduit</a>
@@ -23,77 +23,74 @@
                     <a class="nav-link" href="../index.html">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="">
-                        <i class="ion-compose"></i>&nbsp;New Post
+                    <a class="nav-link active" href="">
+                        <i class="ion-compose"></i>&nbsp;New Article
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="">
+                    <a class="nav-link" href="setting.html">
                         <i class="ion-gear-a"></i>&nbsp;Settings
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="">Sign up</a>
+                <li class="nav-item profileName1">
+                    <a class="nav-link" href="Registration.html">Sign up</a>
                 </li>
             </ul>
         </div>
     </nav>
 
-    <!--    *************       setting-page     **************-->
-    <div class="settings-page">
+    <div class="loading" style="margin: auto 50%; display: none">Loading...</div>
+
+
+    <!--    *************      Edit Article   **************-->
+
+    <div class="editor-page" id="editArticle">
         <div class="container page">
-            <div class="row" style="margin: auto 50%">Loading...</div>
             <div class="row">
 
-                <div class="col-md-6 offset-md-3 col-xs-12">
-                    <h1 class="text-xs-center">Your Settings</h1>
-
-                    <form>
+                <div class="col-md-10 offset-md-1 col-xs-12">
+                    <form class="formEdit">
                         <fieldset>
                             <fieldset class="form-group">
-                                <input class="form-control inputImage" type="text" value="" placeholder="URL of profile picture">
+                                <input type="text" class="form-control form-control-lg" placeholder="Article Title" value="">
                             </fieldset>
                             <fieldset class="form-group">
-                                <input class="form-control form-control-lg inputUsername" value="" type="text" placeholder="Your Name">
+                                <input type="text" class="form-control" placeholder="What's this article about?" value="">
                             </fieldset>
                             <fieldset class="form-group">
-                                <textarea class="form-control form-control-lg inputBio" value="" rows="8" placeholder="Short bio about you"></textarea>
+                                <textarea class="form-control" rows="8" placeholder="Write your article (in markdown)" value=""></textarea>
                             </fieldset>
                             <fieldset class="form-group">
-                                <input class="form-control form-control-lg inputEmail" value="" type="text" placeholder="Email">
+                                <input type="text" class="form-control" placeholder="Enter tags"><div class="tag-list" value=""></div>
                             </fieldset>
-                            <fieldset class="form-group">
-                                <input class="form-control form-control-lg" value="" type="password" placeholder="Password">
-                            </fieldset>
-                            <button type="button" class="btn btn-lg btn-primary pull-xs-right updateBtn">
-                                Update Settings
+                            <button class="btn btn-lg pull-xs-right btn-primary" type="button">
+                                Publish Article
                             </button>
                         </fieldset>
                     </form>
-
-                    <hr/>
-                    <button type="button" class="btn btn-outline-danger logOutBtn" style="display: none">
-                        Or click here to logout.
-                    </button>
-
                 </div>
 
             </div>
         </div>
     </div>
 
-</div>
+    <!--    -----------------------   Edit Article   -------------------------   -->
 
-<footer>
-    <div class="container">
-        <a href="../index.html" class="logo-font">conduit</a>
-        <span class="attribution">
+
+    <footer>
+        <div class="container">
+            <a href="../index.html" class="logo-font">conduit</a>
+            <span class="attribution">
           An interactive learning project from <a href="https://thinkster.io">Thinkster</a>. Code &amp; design licensed under MIT.
         </span>
-    </div>
-</footer>
+        </div>
+    </footer>
+</div>
 
 
-<script type="module" src="../moduleJs/setting.js"></script>
+<script type="application/ecmascript" src="../moduleJs/editArticle.js"></script>
+<script>
+
+</script>
 </body>
 </html>

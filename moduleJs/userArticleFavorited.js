@@ -30,13 +30,17 @@ async function getCurrentUser() {
     }
 }
 
-
+let authorUrl;
+let currentPage = window.location.href;
+let params = new URLSearchParams(currentPage);
+let authorParam;
+for (authorParam of params) {
+    console.log(authorParam[1]);
+    authorUrl = authorParam[1];
+}
 
 //   ########################  getProfile  ##########################
 
-
-// import * as utils from "../utils.js";
-// import * as getUsername from "./getUsername.js";
 
 var profile;
 var listArticleInfo;
@@ -55,7 +59,7 @@ async function getProfilePage() {
         redirect: 'follow'
     };
 
-    return fetch("http://realworld.test/api/profiles/"+users.user.username, requestOptions)
+    return fetch("http://realworld.test/api/profiles/"+authorUrl+"", requestOptions)
 }
 
 async function getProfile() {
@@ -63,7 +67,6 @@ async function getProfile() {
         let response = await getProfilePage();
         let result = await response.json();
         profile = result;
-        console.log(profile);
         return profile
     } catch (error){
         console.log('error' + error)
@@ -76,6 +79,7 @@ async function getProfile() {
 //#########################################################  Favorited Articles list #############################################################
 
 async function favoriteArticle() {
+    await getProfilePage()
     let users = await getCurrentUser();
     if (users.user.username !== "") {
 
@@ -89,7 +93,7 @@ async function favoriteArticle() {
             headers: myHeaders,
         };
 
-        return fetch("http://realworld.test/api/articles?offset=0&limit=20&tag=&favorited="+users.user.username+"", requestOptions)
+        return fetch("http://realworld.test/api/articles?offset=0&limit=20&tag=&favorited="+profile.profile.username+"", requestOptions)
 
     }
 }
@@ -179,11 +183,11 @@ function favoritePost(slug , btnI) {
 
 
     }
-         //   ------------------  Unfavorite Article deleteButton   -------------------
+         //   ------------------ End Unfavorite Article deleteButton   -------------------
 
 }
 
-//   ----------------------------    ArticleFavorites   &   Unfavorite Article     -----------------------------
+//   ----------------------------    End ArticleFavorites   &   Unfavorite Article     -----------------------------
 
 
 
@@ -199,15 +203,24 @@ var numOfFavorArtUser;
 var favoriteBtnColorAll;
 var listFavorite;
 (async function () {
+    await getCurrentUser()
     await getProfile();
-    if (profile.profile.username !== ''){
+    if (users.user.username !== ''){
         document.querySelector(".loading").style.display="initial";
-        document.querySelector(".profileName1").innerHTML = "<a class='nav-link router-link-exact-active active' href='../html/profile.html'>"+profile.profile.username+" </a>";
+        document.querySelector(".profileName1").innerHTML = "<a class='nav-link router-link-exact-active active' href='../html/profile.html?author="+users.user.username+"'>"+users.user.username+" </a>";
         let avatar =document.querySelector(".user-img");
         avatar.outerHTML = `<img src="${profile.profile.image}" class="user-img" style="width: 100px; height: 100px">`;
-        document.querySelector(".profileName2").textContent = profile.profile.username;
+        document.querySelector(".profileName2").textContent = authorUrl;
         document.querySelector(".userInfoP").textContent = profile.profile.bio;
         document.querySelector(".FollowUser").outerHTML = `<a href="../html/setting.html" class="btn btn-sm btn-outline-secondary action-btn"><i class="ion-gear-a"></i> Edit Profile Settings</a>`;
+
+
+        let myArticlesTab =document.querySelector('.myArticlesTab');
+        myArticlesTab.innerHTML = `
+            <a class="nav-link" href='../html/profile.html?author=${profile.profile.username}'>
+            My Articles
+            </a>`;
+
 
 
         let articlesToggle =document.querySelector('.articles-toggle').nextElementSibling;
@@ -248,7 +261,7 @@ var listFavorite;
                             <a href="http://mosaieb.test/html/profile.html" class="router-link-exact-active router-link-active">
                                 <img src="${listFavorite.articles[c].author.image}"></a>
                             <div class="info">
-                            <a href="http://mosaieb.test/html/profile.html">
+                            <a href="http://mosaieb.test/html/profile.html?author=${listFavorite.articles[c].author.username}">
                                 ${listFavorite.articles[c].author.username}
                             </a>
                             <span class="date">${timeArticle}</span>
@@ -257,7 +270,7 @@ var listFavorite;
                                 <i class="ion-heart"></i><span class="counter"> ${listFavorite.articles[c].favoritesCount} </span>
                             </button>
                         </div>
-                        <a href="#/articles/stress-fault-in-north-of-tehran" class="preview-link">
+                        <a href="../html/articles.html?slug=${listFavorite.articles[c].slug}" class="preview-link">
                             <h1>${listFavorite.articles[c].title}</h1>
                             <p>${listFavorite.articles[c].description}</p>
                             <span>Read more...</span>
