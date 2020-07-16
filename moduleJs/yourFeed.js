@@ -194,7 +194,7 @@ var favoriteBtnColorAll;
         document.querySelector(".loading").style.display="initial";
         document.querySelector(".listNav").innerHTML = `
                 <li class="nav-item">
-                    <a class="nav-link active" href="https://mosaieb-mirzaey.github.io/realworld.test/index.html?page=1">Home</a>
+                    <a class="nav-link active" href="https://mosaieb-mirzaey.github.io/realworld.test?page=1">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="">
@@ -212,7 +212,7 @@ var favoriteBtnColorAll;
         `;
 
         let globalFeed =document.querySelector('.globalFeed');
-        globalFeed.setAttribute("href" , "https://mosaieb-mirzaey.github.io/realworld.test/index.html?author="+users.user.username+"")
+        globalFeed.setAttribute("href" , "https://mosaieb-mirzaey.github.io/realworld.test?author="+users.user.username+"")
 
 
 

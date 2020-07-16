@@ -276,10 +276,10 @@ var favoriteBtnColorAll , pageI;
         document.querySelector(".loading").style.display="initial";
         document.querySelector(".listNav").innerHTML = `
                 <li class="nav-item">
-                    <a class="nav-link active" href="https://mosaieb-mirzaey.github.io/realworld.test/?page=1">Home</a>
+                    <a class="nav-link active" href="https://mosaieb-mirzaey.github.io/realworld.test?page=1">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="">
+                    <a class="nav-link" href="https://mosaieb-mirzaey.github.io/realworld.test/html/newArticle.html?author=${users.user.username}">
                         <i class="ion-compose"></i>&nbsp;New Article
                     </a>
                 </li>
@@ -293,7 +293,7 @@ var favoriteBtnColorAll , pageI;
                 </li>
         `;
         let yourFeed =document.querySelector('.yourFeed');
-        yourFeed.setAttribute("href" , "https://mosaieb-mirzaey.github.io/realworld.test//html/yourFeed.html?author="+users.user.username+"")
+        yourFeed.setAttribute("href" , "https://mosaieb-mirzaey.github.io/realworld.test/html/yourFeed.html?author="+users.user.username+"")
 
 
 //#########################################################  Global Articles  #############################################################
@@ -402,7 +402,7 @@ var favoriteBtnColorAll , pageI;
 
             if (Number(pageI.textContent) == getUrl){
                 pageI.parentElement.classList.add("active");
-            }else if (window.location.href == "https://mosaieb-mirzaey.github.io/realworld.test/?page=1"){
+            }else if (window.location.href == "https://mosaieb-mirzaey.github.io/realworld.test?page=1"){
                 document.querySelectorAll(".pageI")[0].parentElement.classList.add("active");
             }
         }

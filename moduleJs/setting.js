@@ -96,5 +96,5 @@ async function setting() {
 // ************     logOutBtn      ************
 logOutBtn.addEventListener('click' , function () {
     window.localStorage.clear();
-    window.location.replace("https://mosaieb-mirzaey.github.io/realworld.test/index.html?page=1");
+    window.location.replace("https://mosaieb-mirzaey.github.io/realworld.test?page=1");
 });
