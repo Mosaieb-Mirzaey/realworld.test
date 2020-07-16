@@ -625,11 +625,11 @@ let favoriteBtnColorUser, followBtnColorUser, followBtnAttr;
                             <p class="card-text">${artComment.comments[i].body}</p>
                         </div>
                         <div class="card-footer">
-                            <a href="https://demo.realworld.io/#/@${artComment.comments[i].author.username}/" class="comment-author">
+                            <a href="https://conduit.productionready.io/html/profile.html?author=${artComment.comments[i].author.username}/" class="comment-author">
                                 <img src="${artComment.comments[i].author.image}" class="comment-author-img" />
                             </a>
                             &nbsp;
-                            <a href="https://demo.realworld.io/#/@${artComment.comments[i].author.username}/" class="comment-author">${artComment.comments[i].author.username}</a>
+                            <a href="https://conduit.productionready.io/html/profile.html?author=${artComment.comments[i].author.username}/" class="comment-author">${artComment.comments[i].author.username}</a>
                             <span class="date-posted">${timeComment}</span>
                             <span class="mod-options"  onclick="deleteComment('${artComment.comments[i].id}')"><i class="ion-trash-a"></i></span>
                         </div>
