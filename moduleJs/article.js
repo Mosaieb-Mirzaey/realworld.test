@@ -483,7 +483,7 @@ let favoriteBtnColorUser, followBtnColorUser, followBtnAttr;
     await articleComments();
     if (profile.profile.username !== '') {
         document.querySelector(".loading").style.display="initial";
-        document.querySelector(".profileName1").innerHTML = "<a class='nav-link router-link-exact-active active' href='https://conduit.productionready.io/html/profile.html?author="+profile.profile.username+"'>"+profile.profile.username+" </a>";
+        document.querySelector(".profileName1").innerHTML = "<a class='nav-link router-link-exact-active active' href='https://mosaieb-mirzaey.github.io/realworld.test/html/profile.html?author="+profile.profile.username+"'>"+profile.profile.username+" </a>";
         document.querySelector(".newArticle").setAttribute('href' , "https://mosaieb-mirzaey.github.io/realworld.test/html/newArticle.html?author="+users.user.username+"");
 
 
