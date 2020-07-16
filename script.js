@@ -264,10 +264,9 @@ var numOfGlobalArt, numOfGlobalTag;
 var favoriteBtnColorAll , pageI;
 (async function () {
     await getParamUrl();
-    await getCurrentUser();
     await listGlobal();
 
-    if (users.user.username !== ''){
+    if ((await getCurrentUser()) && users.user.username !== ''){
         document.querySelector(".loading").style.display="initial";
         document.querySelector(".listNav").innerHTML = `
                 <li class="nav-item">
