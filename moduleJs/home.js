@@ -245,7 +245,7 @@ async function paginate(
     for (let i = 0 ; i < pageNumLength ; i++){
         pagination.innerHTML += `
            <li data-test="page-link-1" class="page-item">
-               <a href="https://mosaieb-mirzaey.github.io/realworld.test/?page=${infoPage.pages[i]}" class="page-link pageI">${infoPage.pages[i]}</a>
+               <a href="https://mosaieb-mirzaey.github.io/realworld.test/html/home.html?page=${infoPage.pages[i]}" class="page-link pageI">${infoPage.pages[i]}</a>
            </li>
             `;
 
@@ -253,7 +253,7 @@ async function paginate(
 
         if (Number(pageI.textContent) == getUrl){
             pageI.parentElement.classList.add("active");
-        }else if (window.location.href == "https://mosaieb-mirzaey.github.io/realworld.test?page=1"){
+        }else if (window.location.href == "https://mosaieb-mirzaey.github.io/realworld.test/html/home.html?page=1"){
             document.querySelectorAll(".pageI")[0].parentElement.classList.add("active");
         }
     }
