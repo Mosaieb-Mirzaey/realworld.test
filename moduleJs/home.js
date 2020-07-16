@@ -12,7 +12,7 @@ async function listArticleGlobal() {
         headers: myHeaders,
     };
 
-    return fetch("https://conduit.productionready.io/api/articles?offset="+((getUrl * 5) - 5)+"&limit=5", requestOptions)
+    return fetch("https://conduit.productionready.io/api/articles?offset="+((getUrl * 5) - 5)+"&limit=40", requestOptions)
 }
 
 
