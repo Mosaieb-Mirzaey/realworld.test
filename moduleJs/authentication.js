@@ -38,7 +38,7 @@ async function login(event){
         redirect: 'follow'
     };
 
-    fetch("http://realworld.test/api/users/login", requestOptions)
+    fetch("https://conduit.productionready.io/api/users/login", requestOptions)
 
         .then(response => {
             return response.json()
