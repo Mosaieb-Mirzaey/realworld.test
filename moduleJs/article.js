@@ -528,15 +528,15 @@ let favoriteBtnColorUser, followBtnColorUser, followBtnAttr;
             <div class="container">
                 <h1>${articleInfo.article.title}</h1>
                 <div class="article-meta">
-                    <a href="https://conduit.productionready.io/html/profile.html?author=${articleInfo.article.author.username}" class="">
+                    <a href="https://mosaieb-mirzaey.github.io/realworld.test/html/profile.html?author=${articleInfo.article.author.username}" class="">
                         <img src="${articleInfo.article.author.image}">
                     </a>
                     <div class="info">
-                        <a href="https://conduit.productionready.io/html/profile.html?author=${articleInfo.article.author.username}" class="author">${articleInfo.article.author.username}</a>
+                        <a href="https://mosaieb-mirzaey.github.io/realworld.test/html/profile.html?author=${articleInfo.article.author.username}" class="author">${articleInfo.article.author.username}</a>
                         <span class="date">${timeArticle}</span>
                     </div>
                     <span>
-                        <a href="https://conduit.productionready.io/html/editArticle.html?slug=${articleInfo.article.slug}" class="btn btn-sm btn-outline-secondary">
+                        <a href="https://mosaieb-mirzaey.github.io/realworld.test/html/editArticle.html?slug=${articleInfo.article.slug}" class="btn btn-sm btn-outline-secondary">
                             <i class="ion-edit"></i>
                             <span>&nbsp;Edit Article</span>
                         </a>
@@ -564,15 +564,15 @@ let favoriteBtnColorUser, followBtnColorUser, followBtnAttr;
 
             <div class="article-actions">
                 <div class="article-meta">
-                    <a href="https://conduit.productionready.io/html/profile.html?author=${articleInfo.article.author.username}" class="">
+                    <a href="https://mosaieb-mirzaey.github.io/realworld.test/html/profile.html?author=${articleInfo.article.author.username}" class="">
                         <img src="${articleInfo.article.author.image}">
                     </a>
                     <div class="info">
-                        <a href="https://conduit.productionready.io/html/profile.html?author=${articleInfo.article.author.username}" class="author">${articleInfo.article.author.username}</a>
+                        <a href="https://mosaieb-mirzaey.github.io/realworld.test/html/profile.html?author=${articleInfo.article.author.username}" class="author">${articleInfo.article.author.username}</a>
                         <span class="date">${timeArticle}</span>
                     </div>
                     <span>
-                        <a href="https://conduit.productionready.io/html/editArticle.html?slug=${articleInfo.article.slug}" class="btn btn-sm btn-outline-secondary">
+                        <a href="https://mosaieb-mirzaey.github.io/realworld.test/html/editArticle.html?slug=${articleInfo.article.slug}" class="btn btn-sm btn-outline-secondary">
                             <i class="ion-edit"></i>
                             <span>&nbsp;Edit Article</span>
                         </a>
@@ -625,11 +625,11 @@ let favoriteBtnColorUser, followBtnColorUser, followBtnAttr;
                             <p class="card-text">${artComment.comments[i].body}</p>
                         </div>
                         <div class="card-footer">
-                            <a href="https://conduit.productionready.io/html/profile.html?author=${artComment.comments[i].author.username}/" class="comment-author">
+                            <a href="https://mosaieb-mirzaey.github.io/realworld.test/html/profile.html?author=${artComment.comments[i].author.username}/" class="comment-author">
                                 <img src="${artComment.comments[i].author.image}" class="comment-author-img" />
                             </a>
                             &nbsp;
-                            <a href="https://conduit.productionready.io/html/profile.html?author=${artComment.comments[i].author.username}/" class="comment-author">${artComment.comments[i].author.username}</a>
+                            <a href="https://mosaieb-mirzaey.github.io/realworld.test/html/profile.html?author=${artComment.comments[i].author.username}/" class="comment-author">${artComment.comments[i].author.username}</a>
                             <span class="date-posted">${timeComment}</span>
                             <span class="mod-options"  onclick="deleteComment('${artComment.comments[i].id}')"><i class="ion-trash-a"></i></span>
                         </div>
@@ -648,11 +648,11 @@ let favoriteBtnColorUser, followBtnColorUser, followBtnAttr;
                          <h1>${articleInfo.article.title}</h1>
            
                          <div class="article-meta">
-                             <a href="https://conduit.productionready.io/html/profile.html?author=${articleInfo.article.author.username}">
+                             <a href="https://mosaieb-mirzaey.github.io/realworld.test/html/profile.html?author=${articleInfo.article.author.username}">
                              <img src="${articleInfo.article.author.image}" />
                              </a>
                              <div class="info">
-                                 <a href="https://conduit.productionready.io/html/profile.html?author=${articleInfo.article.author.username}" class="author">${articleInfo.article.author.username}</a>
+                                 <a href="https://mosaieb-mirzaey.github.io/realworld.test/html/profile.html?author=${articleInfo.article.author.username}" class="author">${articleInfo.article.author.username}</a>
                                  <span class="date">${timeArticle}</span>
                              </div>
                              <button onclick="followPost('${articleInfo.article.slug}' , 0)" class="btn ${followBtnColorUser} btn-sm followBtn">
@@ -684,11 +684,11 @@ let favoriteBtnColorUser, followBtnColorUser, followBtnAttr;
            
                      <div class="article-actions">
                          <div class="article-meta">
-                             <a href="https://conduit.productionready.io/html/profile.html?author=${articleInfo.article.author.username}">
+                             <a href="https://mosaieb-mirzaey.github.io/realworld.test/html/profile.html?author=${articleInfo.article.author.username}">
                              <img src="${articleInfo.article.author.image}" />
                              </a>
                              <div class="info">
-                                 <a href="https://conduit.productionready.io/html/profile.html?author=${articleInfo.article.author.username}" class="author">${articleInfo.article.author.username}</a>
+                                 <a href="https://mosaieb-mirzaey.github.io/realworld.test/html/profile.html?author=${articleInfo.article.author.username}" class="author">${articleInfo.article.author.username}</a>
                                  <span class="date">${timeArticle}</span>
                              </div>
                               <button onclick="followPost('${articleInfo.article.slug}' , 1)" class="btn ${followBtnColorUser} btn-sm followBtn">
@@ -751,11 +751,11 @@ let favoriteBtnColorUser, followBtnColorUser, followBtnAttr;
                             <p class="card-text">${artComment.comments[i].body}</p>
                         </div>
                         <div class="card-footer">
-                            <a href="https://conduit.productionready.io/html/profile.html?author=${artComment.comments[i].author.username}" class="comment-author">
+                            <a href="https://mosaieb-mirzaey.github.io/realworld.test/html/profile.html?author=${artComment.comments[i].author.username}" class="comment-author">
                                 <img src="${artComment.comments[i].author.image}" class="comment-author-img" />
                             </a>
                             &nbsp;
-                            <a href="https://conduit.productionready.io/html/profile.html?author=${artComment.comments[i].author.username}" class="comment-author">${artComment.comments[i].author.username}</a>
+                            <a href="https://mosaieb-mirzaey.github.io/realworld.test/html/profile.html?author=${artComment.comments[i].author.username}" class="comment-author">${artComment.comments[i].author.username}</a>
                             <span class="date-posted">${timeComment}</span>
                         </div>
                     </div>
