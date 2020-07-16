@@ -4,4 +4,7 @@
         margin: auto;
         font-size: 0.75rem;
     }
+    .col-md-9{
+        width: 91.66666667% !important;
+    }
 }
