@@ -184,19 +184,17 @@ async function paginate(
 
                    <div class="article-preview">
                         <div class="article-meta">
-                            <a href="https://mosaieb-mirzaey.github.io/realworld.test/html/profile.html" class="router-link-exact-active router-link-active">
+                            <a href="https://demo.realworld.io/#/@${globalArticleInfo.articles[c].author.username}" class="router-link-exact-active router-link-active">
                                 <img src="${globalArticleInfo.articles[c].author.image}"></a>
                             <div class="info">
-                            <a href="https://mosaieb-mirzaey.github.io/realworld.test/html/profile.html?author=${globalArticleInfo.articles[c].author.username}">
+                            <a href="https://demo.realworld.io/#/@${globalArticleInfo.articles[c].author.username}">
                                 ${globalArticleInfo.articles[c].author.username}
                             </a>
                             <span class="date">${timeArticle}</span>
                             </div>
-                            <button onclick="favoritePost('${globalArticleInfo.articles[c].slug}' , '${c}')" class="btn ${favoriteBtnColorAll} btn-sm pull-xs-right favoriteBtn" ">
-                                <i class="ion-heart"></i><span class="counter"> ${globalArticleInfo.articles[c].favoritesCount} </span>
-                            </button>
                         </div>
-                        <a href="https://mosaieb-mirzaey.github.io/realworld.test/html/articles.html?slug=${globalArticleInfo.articles[c].slug}" class="preview-link">
+                        
+                        <a href="https://demo.realworld.io/#/article/${globalArticleInfo.articles[c].slug}" class="preview-link">
                             <h1>${globalArticleInfo.articles[c].title}</h1>
                             <p>${globalArticleInfo.articles[c].description}</p>
                             <span>Read more...</span>

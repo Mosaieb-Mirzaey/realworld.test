@@ -327,7 +327,7 @@ var favoriteBtnColorAll , pageI;
 
                    <div class="article-preview">
                         <div class="article-meta">
-                            <a href="https://mosaieb-mirzaey.github.io/realworld.test/html/profile.html" class="router-link-exact-active router-link-active">
+                            <a href="https://mosaieb-mirzaey.github.io/realworld.test/html/profile.html?author=${globalArticleInfo.articles[c].author.username}" class="router-link-exact-active router-link-active">
                                 <img src="${globalArticleInfo.articles[c].author.image}"></a>
                             <div class="info">
                             <a href="https://mosaieb-mirzaey.github.io/realworld.test/html/profile.html?author=${globalArticleInfo.articles[c].author.username}">
