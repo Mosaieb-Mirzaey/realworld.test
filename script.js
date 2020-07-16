@@ -276,7 +276,7 @@ var favoriteBtnColorAll , pageI;
         document.querySelector(".loading").style.display="initial";
         document.querySelector(".listNav").innerHTML = `
                 <li class="nav-item">
-                    <a class="nav-link active" href="index.html">Home</a>
+                    <a class="nav-link active" href="https://mosaieb-mirzaey.github.io/realworld.test/?page=1">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="">
@@ -284,16 +284,16 @@ var favoriteBtnColorAll , pageI;
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="html/setting.html">
+                    <a class="nav-link" href="https://mosaieb-mirzaey.github.io/realworld.test/html/setting.html">
                         <i class="ion-gear-a"></i>&nbsp;Settings
                     </a>
                 </li>
                 <li class="nav-item signUp">
-                    <a class='nav-link' href="html/profile.html?author=${users.user.username}">${users.user.username}</a>
+                    <a class='nav-link' href="https://mosaieb-mirzaey.github.io/realworld.test/html/profile.html?author=${users.user.username}">${users.user.username}</a>
                 </li>
         `;
         let yourFeed =document.querySelector('.yourFeed');
-        yourFeed.setAttribute("href" , "../html/yourFeed.html?author="+users.user.username+"")
+        yourFeed.setAttribute("href" , "https://mosaieb-mirzaey.github.io/realworld.test//html/yourFeed.html?author="+users.user.username+"")
 
 
 //#########################################################  Global Articles  #############################################################
@@ -331,10 +331,10 @@ var favoriteBtnColorAll , pageI;
 
                    <div class="article-preview">
                         <div class="article-meta">
-                            <a href="http://mosaieb.test/html/profile.html" class="router-link-exact-active router-link-active">
+                            <a href="https://mosaieb-mirzaey.github.io/realworld.test/html/profile.html" class="router-link-exact-active router-link-active">
                                 <img src="${globalArticleInfo.articles[c].author.image}"></a>
                             <div class="info">
-                            <a href="http://mosaieb.test/html/profile.html?author=${globalArticleInfo.articles[c].author.username}">
+                            <a href="https://mosaieb-mirzaey.github.io/realworld.test/html/profile.html?author=${globalArticleInfo.articles[c].author.username}">
                                 ${globalArticleInfo.articles[c].author.username}
                             </a>
                             <span class="date">${timeArticle}</span>
@@ -343,7 +343,7 @@ var favoriteBtnColorAll , pageI;
                                 <i class="ion-heart"></i><span class="counter"> ${globalArticleInfo.articles[c].favoritesCount} </span>
                             </button>
                         </div>
-                        <a href="../html/articles.html?slug=${globalArticleInfo.articles[c].slug}" class="preview-link">
+                        <a href="https://mosaieb-mirzaey.github.io/realworld.test/html/articles.html?slug=${globalArticleInfo.articles[c].slug}" class="preview-link">
                             <h1>${globalArticleInfo.articles[c].title}</h1>
                             <p>${globalArticleInfo.articles[c].description}</p>
                             <span>Read more...</span>
@@ -394,7 +394,7 @@ var favoriteBtnColorAll , pageI;
         for (let i = 0 ; i < pageNumLength ; i++){
             pagination.innerHTML += `
            <li data-test="page-link-1" class="page-item">
-               <a href="http://mosaieb.test/index.html?page=${infoPage.pages[i]}" class="page-link pageI">${infoPage.pages[i]}</a>
+               <a href="https://mosaieb-mirzaey.github.io/realworld.test/index.html?page=${infoPage.pages[i]}" class="page-link pageI">${infoPage.pages[i]}</a>
            </li>
             `;
 
@@ -402,7 +402,7 @@ var favoriteBtnColorAll , pageI;
 
             if (Number(pageI.textContent) == getUrl){
                 pageI.parentElement.classList.add("active");
-            }else if (window.location.href == "http://mosaieb.test/index.html"){
+            }else if (window.location.href == "https://mosaieb-mirzaey.github.io/realworld.test/index.html"){
                 document.querySelectorAll(".pageI")[0].parentElement.classList.add("active");
             }
         }
