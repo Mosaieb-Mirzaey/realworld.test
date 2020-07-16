@@ -10,7 +10,7 @@ async function getUsername() {
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
     myHeaders.append("Authorization", "Token " + getToken());
-    return   fetch("http://realworld.test/api/user", {
+    return   fetch("https://conduit.productionready.io/api/user", {
         method: 'GET',
         headers: myHeaders,
     });
@@ -45,7 +45,7 @@ async function listArticleGlobal() {
             headers: myHeaders,
         };
 
-        return fetch("http://realworld.test/api/articles?offset="+((getUrl * 5) - 5)+"&limit=5", requestOptions)
+        return fetch("https://conduit.productionready.io/api/articles?offset="+((getUrl * 5) - 5)+"&limit=5", requestOptions)
 
     }
 }
@@ -89,7 +89,7 @@ function favoritePost(slug , btnI) {
             redirect: 'follow'
         };
 
-        fetch("http://realworld.test/api/articles/"+slug+"/favorite", requestOptions)
+        fetch("https://conduit.productionready.io/api/articles/"+slug+"/favorite", requestOptions)
             .then(response => response.text())
             .then(result => {
                 console.log(result);
@@ -123,7 +123,7 @@ function favoritePost(slug , btnI) {
             redirect: 'follow'
         };
 
-        fetch("http://realworld.test/api/articles/"+slug+"/favorite", requestOptions)
+        fetch("https://conduit.productionready.io/api/articles/"+slug+"/favorite", requestOptions)
             .then(response => response.text())
             .then(result => {
                 console.log(result);
@@ -160,7 +160,7 @@ async function popularTagGet() {
         redirect: 'follow'
     };
 
-    return fetch("http://realworld.test/api/tags", requestOptions)
+    return fetch("https://conduit.productionready.io/api/tags", requestOptions)
 }
 
 async function tagPopularGet(){

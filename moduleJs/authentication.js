@@ -50,7 +50,7 @@ async function login(event){
                 destroyToken();
                 saveToken(result.user.token);
                 alert('success');
-                window.location.replace("http://mosaieb.test/index.html");
+                window.location.replace("https://mosaieb-mirzaey.github.io/realworld.test/");
             }else {
                 errorMessages.innerHTML = `<li>Email or password is invalid!</li>`
             }
