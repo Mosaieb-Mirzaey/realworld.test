@@ -10,6 +10,8 @@ async function getUsername() {
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
     myHeaders.append("Authorization", "Token " + getToken());
+    myHeaders.append("Accept", "application/json");
+
     return   fetch("https://conduit.productionready.io/api/user", {
         method: 'GET',
         headers: myHeaders,
@@ -23,7 +25,7 @@ async function getCurrentUser() {
         users = result;
         return users
     } catch (error) {
-        console.log('error' + error)
+        console.log('error' + 1111)
     }
 }
 
@@ -382,7 +384,7 @@ var favoriteBtnColorAll , pageI;
 
 
 
-        if ((await getCurrentUser()) && users.user.username !== ''){
+        if (await getCurrentUser() == 'error'){
             document.querySelector(".loading").style.display="initial";
             document.querySelector(".listNav").innerHTML = `
                 <li class="nav-item">
