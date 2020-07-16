@@ -146,6 +146,9 @@ async function paginate(
 
 (async function f() {
 
+    await listGlobal();
+    await getParamUrl();
+
     let artGlobalFrame =document.querySelector('.artGlobalFrame');
 
     numOfGlobalArt = Object.entries(globalArticleInfo.articles);
