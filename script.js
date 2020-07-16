@@ -34,7 +34,6 @@ async function listArticleGlobal() {
 
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
-        myHeaders.append("Authorization", "Token " + getToken());
         myHeaders.append("Accept", "application/json");
 
         var requestOptions = {
