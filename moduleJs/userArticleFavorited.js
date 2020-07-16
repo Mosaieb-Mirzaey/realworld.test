@@ -208,6 +208,8 @@ var listFavorite;
     if (users.user.username !== ''){
         document.querySelector(".loading").style.display="initial";
         document.querySelector(".profileName1").innerHTML = "<a class='nav-link router-link-exact-active active' href='https://mosaieb-mirzaey.github.io/realworld.test/html/profile.html?author="+users.user.username+"'>"+users.user.username+" </a>";
+        document.querySelector(".newArticle").setAttribute('href' , "https://mosaieb-mirzaey.github.io/realworld.test/html/newArticle.html?author="+users.user.username+"");
+
         let avatar =document.querySelector(".user-img");
         avatar.outerHTML = `<img src="${profile.profile.image}" class="user-img" style="width: 100px; height: 100px">`;
         document.querySelector(".profileName2").textContent = authorUrl;
