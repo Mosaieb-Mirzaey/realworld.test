@@ -31,9 +31,6 @@ async function getCurrentUser() {
 //   ##########################  List Global Article  ############################
 let globalArticleInfo;
 async function listArticleGlobal() {
-    await getCurrentUser();
-    console.log(users)
-    if (users.user.username !== "") {
 
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
@@ -46,8 +43,6 @@ async function listArticleGlobal() {
         };
 
         return fetch("https://conduit.productionready.io/api/articles?offset="+((getUrl * 5) - 5)+"&limit=5", requestOptions)
-
-    }
 }
 
 
