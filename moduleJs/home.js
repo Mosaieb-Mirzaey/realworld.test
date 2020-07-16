@@ -147,7 +147,7 @@ async function paginate(
 
 
 (async function f() {
-
+    await getParamUrl();
     await listGlobal();
     await getParamUrl();
 
@@ -240,7 +240,7 @@ async function paginate(
 
 
 
-    await getParamUrl();
+
     await paginate();
     let pagination = document.querySelector(".pagination");
     let pageNumLength = infoPage.pages.length;
