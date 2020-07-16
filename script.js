@@ -176,7 +176,7 @@ async function tagPopularGet(){
 
 //  ############  ****************  ############   Pagination   ############  ****************  ################
 let infoPage;
-var getUrl, params ;
+var getUrl = 1, params ;
 
 
 async  function getParamUrl(){
@@ -485,7 +485,7 @@ var favoriteBtnColorAll , pageI;
         await tagPopularGet();
 
         numOfGlobalTag = Object.entries(tagGlobal.tags);
-        var tagNum = numOfGlobalTag.length;
+        let tagNum = numOfGlobalTag.length;
 
         for (let i = 0 ; i < tagNum ; i++){
             let popularTag = document.querySelector(".popularTag");
