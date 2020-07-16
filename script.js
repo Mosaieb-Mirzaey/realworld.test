@@ -484,7 +484,7 @@ var favoriteBtnColorAll , pageI;
             await tagPopularGet();
 
             numOfGlobalTag = Object.entries(tagGlobal.tags);
-            var tagNum = numOfGlobalTag.length;
+            let tagNum = numOfGlobalTag.length;
 
             for (let i = 0 ; i < tagNum ; i++){
                 let popularTag = document.querySelector(".popularTag");
