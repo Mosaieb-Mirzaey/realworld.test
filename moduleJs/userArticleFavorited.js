@@ -12,7 +12,7 @@ async function getUsername() {
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
     myHeaders.append("Authorization", "Token " + getToken());
-    return   fetch("http://realworld.test/api/user", {
+    return   fetch("https://conduit.productionready.io/api/user", {
         method: 'GET',
         headers: myHeaders,
         redirect: 'follow'
@@ -59,7 +59,7 @@ async function getProfilePage() {
         redirect: 'follow'
     };
 
-    return fetch("http://realworld.test/api/profiles/"+authorUrl+"", requestOptions)
+    return fetch("https://conduit.productionready.io/api/profiles/"+authorUrl+"", requestOptions)
 }
 
 async function getProfile() {
@@ -93,7 +93,7 @@ async function favoriteArticle() {
             headers: myHeaders,
         };
 
-        return fetch("http://realworld.test/api/articles?offset=0&limit=20&tag=&favorited="+profile.profile.username+"", requestOptions)
+        return fetch("https://conduit.productionready.io/api/articles?offset=0&limit=20&tag=&favorited="+profile.profile.username+"", requestOptions)
 
     }
 }
@@ -135,7 +135,7 @@ function favoritePost(slug , btnI) {
             redirect: 'follow'
         };
 
-        fetch("http://realworld.test/api/articles/"+slug+"/favorite", requestOptions)
+        fetch("https://conduit.productionready.io/api/articles/"+slug+"/favorite", requestOptions)
             .then(response => response.text())
             .then(result => {
                 console.log(result);
@@ -169,7 +169,7 @@ function favoritePost(slug , btnI) {
             redirect: 'follow'
         };
 
-        fetch("http://realworld.test/api/articles/"+slug+"/favorite", requestOptions)
+        fetch("https://conduit.productionready.io/api/articles/"+slug+"/favorite", requestOptions)
             .then(response => response.text())
             .then(result => {
                 console.log(result);
@@ -207,17 +207,17 @@ var listFavorite;
     await getProfile();
     if (users.user.username !== ''){
         document.querySelector(".loading").style.display="initial";
-        document.querySelector(".profileName1").innerHTML = "<a class='nav-link router-link-exact-active active' href='../html/profile.html?author="+users.user.username+"'>"+users.user.username+" </a>";
+        document.querySelector(".profileName1").innerHTML = "<a class='nav-link router-link-exact-active active' href='https://mosaieb-mirzaey.github.io/realworld.test/html/profile.html?author="+users.user.username+"'>"+users.user.username+" </a>";
         let avatar =document.querySelector(".user-img");
         avatar.outerHTML = `<img src="${profile.profile.image}" class="user-img" style="width: 100px; height: 100px">`;
         document.querySelector(".profileName2").textContent = authorUrl;
         document.querySelector(".userInfoP").textContent = profile.profile.bio;
-        document.querySelector(".FollowUser").outerHTML = `<a href="../html/setting.html" class="btn btn-sm btn-outline-secondary action-btn"><i class="ion-gear-a"></i> Edit Profile Settings</a>`;
+        document.querySelector(".FollowUser").outerHTML = `<a href="https://mosaieb-mirzaey.github.io/realworld.test/html/setting.html" class="btn btn-sm btn-outline-secondary action-btn"><i class="ion-gear-a"></i> Edit Profile Settings</a>`;
 
 
         let myArticlesTab =document.querySelector('.myArticlesTab');
         myArticlesTab.innerHTML = `
-            <a class="nav-link" href='../html/profile.html?author=${profile.profile.username}'>
+            <a class="nav-link" href='https://mosaieb-mirzaey.github.io/realworld.test/html/profile.html?author=${profile.profile.username}'>
             My Articles
             </a>`;
 
@@ -258,10 +258,10 @@ var listFavorite;
                 articlesToggle.innerHTML += `
                    <div class="article-preview">
                         <div class="article-meta">
-                            <a href="http://mosaieb.test/html/profile.html" class="router-link-exact-active router-link-active">
+                            <a href="https://mosaieb-mirzaey.github.io/realworld.test/html/profile.html" class="router-link-exact-active router-link-active">
                                 <img src="${listFavorite.articles[c].author.image}"></a>
                             <div class="info">
-                            <a href="http://mosaieb.test/html/profile.html?author=${listFavorite.articles[c].author.username}">
+                            <a href="https://mosaieb-mirzaey.github.io/realworld.test/html/profile.html?author=${listFavorite.articles[c].author.username}">
                                 ${listFavorite.articles[c].author.username}
                             </a>
                             <span class="date">${timeArticle}</span>
@@ -270,7 +270,7 @@ var listFavorite;
                                 <i class="ion-heart"></i><span class="counter"> ${listFavorite.articles[c].favoritesCount} </span>
                             </button>
                         </div>
-                        <a href="../html/articles.html?slug=${listFavorite.articles[c].slug}" class="preview-link">
+                        <a href="https://mosaieb-mirzaey.github.io/realworld.test/html/articles.html?slug=${listFavorite.articles[c].slug}" class="preview-link">
                             <h1>${listFavorite.articles[c].title}</h1>
                             <p>${listFavorite.articles[c].description}</p>
                             <span>Read more...</span>

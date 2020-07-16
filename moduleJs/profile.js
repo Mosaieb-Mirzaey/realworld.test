@@ -12,7 +12,7 @@ async function getUsername() {
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
     myHeaders.append("Authorization", "Token " + getToken());
-    return   fetch("http://realworld.test/api/user", {
+    return   fetch("https://conduit.productionready.io/api/user", {
         method: 'GET',
         headers: myHeaders,
         redirect: 'follow'
@@ -57,7 +57,7 @@ async function getProfilePage() {
         redirect: 'follow'
     };
 
-    return fetch("http://realworld.test/api/profiles/"+authorUrl+"", requestOptions)
+    return fetch("https://conduit.productionready.io/api/profiles/"+authorUrl+"", requestOptions)
 }
 
 async function getProfile() {
@@ -91,7 +91,7 @@ async function listArticle() {
             headers: myHeaders,
         };
 
-        return fetch("http://realworld.test/api/articles?offset=0&limit=20&tag=&favorited=&author="+authorUrl+"", requestOptions)
+        return fetch("https://conduit.productionready.io/api/articles?offset=0&limit=20&tag=&favorited=&author="+authorUrl+"", requestOptions)
 
     }
 }
@@ -135,7 +135,7 @@ function favoritePost(slug , btnI) {
             redirect: 'follow'
         };
 
-        fetch("http://realworld.test/api/articles/"+slug+"/favorite", requestOptions)
+        fetch("https://conduit.productionready.io/api/articles/"+slug+"/favorite", requestOptions)
             .then(response => response.text())
             .then(result => {
                 console.log(result);
@@ -169,7 +169,7 @@ function favoritePost(slug , btnI) {
             redirect: 'follow'
         };
 
-        fetch("http://realworld.test/api/articles/"+slug+"/favorite", requestOptions)
+        fetch("https://conduit.productionready.io/api/articles/"+slug+"/favorite", requestOptions)
             .then(response => response.text())
             .then(result => {
                 console.log(result);
@@ -213,17 +213,17 @@ let followUser = document.querySelector(".FollowUser");
         if (users.user.username == profile.profile.username){
 
             document.querySelector(".loading").style.display="initial";
-            document.querySelector(".profileName1").innerHTML = "<a class='nav-link router-link-exact-active active' href='../html/profile.html?author="+users.user.username+"'>"+users.user.username+" </a>";
-            document.querySelector(".newArticle").setAttribute("href","newArticle.html?author="+users.user.username+"");
+            document.querySelector(".profileName1").innerHTML = "<a class='nav-link router-link-exact-active active' href='https://mosaieb-mirzaey.github.io/realworld.test/html/profile.html?author="+users.user.username+"'>"+users.user.username+" </a>";
+            document.querySelector(".newArticle").setAttribute("href","https://mosaieb-mirzaey.github.io/realworld.test/html/newArticle.html?author="+users.user.username+"");
             let avatar =document.querySelector(".user-img");
             avatar.outerHTML = `<img src="${profile.profile.image}" class="user-img" style="width: 100px; height: 100px">`;
             document.querySelector(".profileName2").textContent = profile.profile.username;
             document.querySelector(".userInfoP").textContent = profile.profile.bio;
-            document.querySelector(".FollowUser").outerHTML = `<a href="../html/setting.html" class="btn btn-sm btn-outline-secondary action-btn"><i class="ion-gear-a"></i> Edit Profile Settings</a>`;
+            document.querySelector(".FollowUser").outerHTML = `<a href="https://mosaieb-mirzaey.github.io/realworld.test/html/setting.html" class="btn btn-sm btn-outline-secondary action-btn"><i class="ion-gear-a"></i> Edit Profile Settings</a>`;
 
         }else {
             document.querySelector(".loading").style.display="initial";
-            document.querySelector(".profileName1").innerHTML = "<a class='nav-link router-link-exact-active' href='../html/profile.html?author="+users.user.username+"'>"+users.user.username+" </a>";
+            document.querySelector(".profileName1").innerHTML = "<a class='nav-link router-link-exact-active' href='https://mosaieb-mirzaey.github.io/realworld.test/html/profile.html?author="+users.user.username+"'>"+users.user.username+" </a>";
 
 
             let avatar =document.querySelector(".user-img");
@@ -231,7 +231,7 @@ let followUser = document.querySelector(".FollowUser");
             document.querySelector(".profileName2").textContent = profile.profile.username;
             document.querySelector(".userInfoP").textContent = profile.profile.bio;
             followUser.outerHTML = `
-                    <a href="../html/setting.html" class="btn btn-sm btn-outline-secondary action-btn FollowUser">
+                    <a href="https://mosaieb-mirzaey.github.io/realworld.test/html/setting.html" class="btn btn-sm btn-outline-secondary action-btn FollowUser">
                     <i class="ion-plus-round"></i>
                     &nbsp;Follow Eric Simons
                     </a>`;
@@ -239,7 +239,7 @@ let followUser = document.querySelector(".FollowUser");
 
         let favoriteArticlesTab =document.querySelector('.favoriteArticlesTab');
         favoriteArticlesTab.innerHTML = `
-        <a class="nav-link favoriteArticles" href="../html/userArticleFavorited.html?author=${authorUrl}">
+        <a class="nav-link favoriteArticles" href="https://mosaieb-mirzaey.github.io/realworld.test/html/userArticleFavorited.html?author=${authorUrl}">
         Favorited Articles
         </a>`;
 
@@ -280,10 +280,10 @@ let followUser = document.querySelector(".FollowUser");
             articlesToggle.innerHTML += `
                    <div class="article-preview">
                         <div class="article-meta">
-                            <a href="http://mosaieb.test/html/profile.html?author=${listArticleInfo.articles[i].author.username}" class="router-link-exact-active router-link-active">
+                            <a href="https://mosaieb-mirzaey.github.io/realworld.test/html/profile.html?author=${listArticleInfo.articles[i].author.username}" class="router-link-exact-active router-link-active">
                                 <img src="${listArticleInfo.articles[i].author.image}"></a>
                             <div class="info">
-                            <a href="http://mosaieb.test/html/profile.html?author=${listArticleInfo.articles[i].author.username}">
+                            <a href="https://mosaieb-mirzaey.github.io/realworld.test/html/profile.html?author=${listArticleInfo.articles[i].author.username}">
                                 ${listArticleInfo.articles[i].author.username}
                             </a>
                             <span class="date">${timeArticle}</span>
@@ -292,7 +292,7 @@ let followUser = document.querySelector(".FollowUser");
                                 <i class="ion-heart"></i><span class="counter"> ${listArticleInfo.articles[i].favoritesCount} </span>
                             </button>
                         </div>
-                        <a href="../html/articles.html?slug=${listArticleInfo.articles[i].slug}" class="preview-link">
+                        <a href="https://mosaieb-mirzaey.github.io/realworld.test/html/articles.html?slug=${listArticleInfo.articles[i].slug}" class="preview-link">
                             <h1>${listArticleInfo.articles[i].title}</h1>
                             <p>${listArticleInfo.articles[i].description}</p>
                             <span>Read more...</span>

@@ -9,7 +9,7 @@ async function getUsername() {
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
     myHeaders.append("Authorization", "Token " + getToken());
-    return   fetch("http://realworld.test/api/user", {
+    return   fetch("https://conduit.productionready.io/api/user", {
         method: 'GET',
         headers: myHeaders,
         redirect: 'follow'
@@ -41,7 +41,7 @@ var logOutBtn = document.querySelector(".logOutBtn");
 
     if (users.user.username !== ""){
         document.querySelector("#setting > nav > div > ul > li:nth-child(2) > a").innerHTML = `<i class="ion-compose"></i>&nbsp;New Article`;
-        document.querySelector("#setting > nav > div > ul > li:nth-child(4)").innerHTML = "<a class='nav-link router-link-exact-active' href='../html/profile.html'>"+users.user.username+" </a>";
+        document.querySelector("#setting > nav > div > ul > li:nth-child(4)").innerHTML = "<a class='nav-link router-link-exact-active' href='https://mosaieb-mirzaey.github.io/realworld.test/html/profile.html'>"+users.user.username+" </a>";
         document.querySelector("#profile > div > div.user-info > div > div > div > button");
         inputImage.value = users.user.image;
         inputUsername.value = users.user.username;
@@ -75,7 +75,7 @@ async function updateSettingPage() {
         redirect: 'follow'
     };
     alert("Update Success!");
-    return  fetch("http://realworld.test/api/user", requestOptions)
+    return  fetch("https://conduit.productionready.io/api/user", requestOptions)
 
 }
 
@@ -96,5 +96,5 @@ async function setting() {
 // ************     logOutBtn      ************
 logOutBtn.addEventListener('click' , function () {
     window.localStorage.clear();
-    window.location.replace("http://mosaieb.test/index.html");
+    window.location.replace("https://mosaieb-mirzaey.github.io/realworld.test/index.html?page=1");
 });

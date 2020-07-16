@@ -11,7 +11,7 @@ async function getUsername() {
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
     myHeaders.append("Authorization", "Token " + getToken());
-    return   fetch("http://realworld.test/api/user", {
+    return   fetch("https://conduit.productionready.io/api/user", {
         method: 'GET',
         headers: myHeaders,
         redirect: 'follow'
@@ -49,7 +49,7 @@ async function getProfilePage() {
         redirect: 'follow'
     };
 
-    return fetch("http://realworld.test/api/profiles/"+users.user.username, requestOptions)
+    return fetch("https://conduit.productionready.io/api/profiles/"+users.user.username, requestOptions)
 }
 
 async function getProfile() {
@@ -92,7 +92,7 @@ async function getArticleTarget() {
             headers: myHeaders,
         };
 
-        return fetch("http://realworld.test//api/articles/"+slugParam[1]+"", requestOptions)
+        return fetch("https://conduit.productionready.io/api/articles/"+slugParam[1]+"", requestOptions)
 
     }
 }
@@ -127,7 +127,7 @@ async function getComments() {
         redirect: 'follow'
     };
 
-    return fetch("http://realworld.test/api/articles/" + slugUrl + "/comments", requestOptions);
+    return fetch("https://conduit.productionready.io/api/articles/" + slugUrl + "/comments", requestOptions);
 }
 async function articleComments() {
     try {
@@ -165,7 +165,7 @@ async function creatComments() {
             redirect: 'follow'
         };
 
-        return fetch("http://realworld.test/api/articles/" + slugUrl + "/comments", requestOptions)
+        return fetch("https://conduit.productionready.io/api/articles/" + slugUrl + "/comments", requestOptions)
     }
 }
     async function addComments() {
@@ -182,11 +182,11 @@ async function creatComments() {
                                 <p class="card-text">${postComment.comment.body}</p>
                             </div>
                             <div class="card-footer">
-                                <a href="../html/profile.html?author=${postComment.comment.author.username}" class="comment-author">
+                                <a href="https://conduit.productionready.io/html/profile.html?author=${postComment.comment.author.username}" class="comment-author">
                                 <img src="${postComment.comment.author.image}" class="comment-author-img" />
                                 </a>
                                 &nbsp;
-                                <a href="../html/profile.html?author=${postComment.comment.author.username}" class="comment-author">${postComment.comment.author.username}</a>
+                                <a href="https://conduit.productionready.io/html/profile.html?author=${postComment.comment.author.username}" class="comment-author">${postComment.comment.author.username}</a>
                                 <span class="date-posted"></span>
                             </div>
                         </div>
@@ -219,7 +219,7 @@ let delCommentResult, delComment;
             redirect: 'follow'
         };
 
-        fetch("http://realworld.test/api/articles/" + slugUrl + "/comments/" + i + "", requestOptions)
+        fetch("https://conduit.productionready.io/api/articles/" + slugUrl + "/comments/" + i + "", requestOptions)
 
             .then(response => response.text())
             .then(result => {
@@ -263,7 +263,7 @@ function favoritePost(slug , btnI) {
             redirect: 'follow'
         };
 
-        fetch("http://realworld.test/api/articles/"+slug+"/favorite", requestOptions)
+        fetch("https://conduit.productionready.io/api/articles/"+slug+"/favorite", requestOptions)
             .then(response => response.text())
             .then(result => {
                 console.log(result);
@@ -308,7 +308,7 @@ function favoritePost(slug , btnI) {
             redirect: 'follow'
         };
 
-        fetch("http://realworld.test/api/articles/"+slug+"/favorite", requestOptions)
+        fetch("https://conduit.productionready.io/api/articles/"+slug+"/favorite", requestOptions)
             .then(response => response.text())
             .then(result => {
                 console.log(result);
@@ -369,7 +369,7 @@ function followPost(slug , btnI) {
             redirect: 'follow'
         };
 
-        fetch("http://realworld.test/api/profiles/"+articleInfo.article.author.username+"/follow", requestOptions)
+        fetch("https://conduit.productionready.io/api/profiles/"+articleInfo.article.author.username+"/follow", requestOptions)
 
             .then(response => response.text())
             .then(result => {
@@ -411,7 +411,7 @@ function followPost(slug , btnI) {
             redirect: 'follow'
         };
 
-        fetch("http://realworld.test/api/profiles/"+articleInfo.article.author.username+"/follow", requestOptions)
+        fetch("https://conduit.productionready.io/api/profiles/"+articleInfo.article.author.username+"/follow", requestOptions)
             .then(response => response.text())
             .then(result => {
                 console.log(result);
@@ -457,12 +457,12 @@ function deleteArticle() {
         redirect: 'follow'
     };
 
-    fetch("http://realworld.test/api/articles/"+slugUrl+"", requestOptions)
+    fetch("https://conduit.productionready.io/api/articles/"+slugUrl+"", requestOptions)
         .then(response => response.text())
         .then(result => {
             console.log(result);
             alert("Article Deleted!");
-            location.replace("../html/profile.html?author="+articleInfo.article.author.username+"");
+            location.replace("https://conduit.productionready.io/html/profile.html?author="+articleInfo.article.author.username+"");
         })
         .catch(error => console.log('error', error));
 
@@ -483,7 +483,7 @@ let favoriteBtnColorUser, followBtnColorUser, followBtnAttr;
     await articleComments();
     if (profile.profile.username !== '') {
         document.querySelector(".loading").style.display="initial";
-        document.querySelector(".profileName1").innerHTML = "<a class='nav-link router-link-exact-active active' href='../html/profile.html?author="+profile.profile.username+"'>"+profile.profile.username+" </a>";
+        document.querySelector(".profileName1").innerHTML = "<a class='nav-link router-link-exact-active active' href='https://conduit.productionready.io/html/profile.html?author="+profile.profile.username+"'>"+profile.profile.username+" </a>";
 
 
                     //  ############   favoriteBtnColor    ##############
@@ -527,15 +527,15 @@ let favoriteBtnColorUser, followBtnColorUser, followBtnAttr;
             <div class="container">
                 <h1>${articleInfo.article.title}</h1>
                 <div class="article-meta">
-                    <a href="../html/profile.html?author=${articleInfo.article.author.username}" class="">
+                    <a href="https://conduit.productionready.io/html/profile.html?author=${articleInfo.article.author.username}" class="">
                         <img src="${articleInfo.article.author.image}">
                     </a>
                     <div class="info">
-                        <a href="../html/profile.html?author=${articleInfo.article.author.username}" class="author">${articleInfo.article.author.username}</a>
+                        <a href="https://conduit.productionready.io/html/profile.html?author=${articleInfo.article.author.username}" class="author">${articleInfo.article.author.username}</a>
                         <span class="date">${timeArticle}</span>
                     </div>
                     <span>
-                        <a href="../html/editArticle.html?slug=${articleInfo.article.slug}" class="btn btn-sm btn-outline-secondary">
+                        <a href="https://conduit.productionready.io/html/editArticle.html?slug=${articleInfo.article.slug}" class="btn btn-sm btn-outline-secondary">
                             <i class="ion-edit"></i>
                             <span>&nbsp;Edit Article</span>
                         </a>
@@ -563,15 +563,15 @@ let favoriteBtnColorUser, followBtnColorUser, followBtnAttr;
 
             <div class="article-actions">
                 <div class="article-meta">
-                    <a href="../html/profile.html?author=${articleInfo.article.author.username}" class="">
+                    <a href="https://conduit.productionready.io/html/profile.html?author=${articleInfo.article.author.username}" class="">
                         <img src="${articleInfo.article.author.image}">
                     </a>
                     <div class="info">
-                        <a href="../html/profile.html?author=${articleInfo.article.author.username}" class="author">${articleInfo.article.author.username}</a>
+                        <a href="https://conduit.productionready.io/html/profile.html?author=${articleInfo.article.author.username}" class="author">${articleInfo.article.author.username}</a>
                         <span class="date">${timeArticle}</span>
                     </div>
                     <span>
-                        <a href="../html/editArticle.html?slug=${articleInfo.article.slug}" class="btn btn-sm btn-outline-secondary">
+                        <a href="https://conduit.productionready.io/html/editArticle.html?slug=${articleInfo.article.slug}" class="btn btn-sm btn-outline-secondary">
                             <i class="ion-edit"></i>
                             <span>&nbsp;Edit Article</span>
                         </a>
@@ -624,11 +624,11 @@ let favoriteBtnColorUser, followBtnColorUser, followBtnAttr;
                             <p class="card-text">${artComment.comments[i].body}</p>
                         </div>
                         <div class="card-footer">
-                            <a href="http://realworld.test/index.html#/@${artComment.comments[i].author.username}/" class="comment-author">
+                            <a href="https://demo.realworld.io/#/@${artComment.comments[i].author.username}/" class="comment-author">
                                 <img src="${artComment.comments[i].author.image}" class="comment-author-img" />
                             </a>
                             &nbsp;
-                            <a href="http://realworld.test/index.html#/@${artComment.comments[i].author.username}/" class="comment-author">${artComment.comments[i].author.username}</a>
+                            <a href="https://demo.realworld.io/#/@${artComment.comments[i].author.username}/" class="comment-author">${artComment.comments[i].author.username}</a>
                             <span class="date-posted">${timeComment}</span>
                             <span class="mod-options"  onclick="deleteComment('${artComment.comments[i].id}')"><i class="ion-trash-a"></i></span>
                         </div>
@@ -647,11 +647,11 @@ let favoriteBtnColorUser, followBtnColorUser, followBtnAttr;
                          <h1>${articleInfo.article.title}</h1>
            
                          <div class="article-meta">
-                             <a href="../html/profile.html?author=${articleInfo.article.author.username}">
+                             <a href="https://conduit.productionready.io/html/profile.html?author=${articleInfo.article.author.username}">
                              <img src="${articleInfo.article.author.image}" />
                              </a>
                              <div class="info">
-                                 <a href="../html/profile.html?author=${articleInfo.article.author.username}" class="author">${articleInfo.article.author.username}</a>
+                                 <a href="https://conduit.productionready.io/html/profile.html?author=${articleInfo.article.author.username}" class="author">${articleInfo.article.author.username}</a>
                                  <span class="date">${timeArticle}</span>
                              </div>
                              <button onclick="followPost('${articleInfo.article.slug}' , 0)" class="btn ${followBtnColorUser} btn-sm followBtn">
@@ -683,11 +683,11 @@ let favoriteBtnColorUser, followBtnColorUser, followBtnAttr;
            
                      <div class="article-actions">
                          <div class="article-meta">
-                             <a href="../html/profile.html?author=${articleInfo.article.author.username}">
+                             <a href="https://conduit.productionready.io/html/profile.html?author=${articleInfo.article.author.username}">
                              <img src="${articleInfo.article.author.image}" />
                              </a>
                              <div class="info">
-                                 <a href="../html/profile.html?author=${articleInfo.article.author.username}" class="author">${articleInfo.article.author.username}</a>
+                                 <a href="https://conduit.productionready.io/html/profile.html?author=${articleInfo.article.author.username}" class="author">${articleInfo.article.author.username}</a>
                                  <span class="date">${timeArticle}</span>
                              </div>
                               <button onclick="followPost('${articleInfo.article.slug}' , 1)" class="btn ${followBtnColorUser} btn-sm followBtn">
@@ -750,11 +750,11 @@ let favoriteBtnColorUser, followBtnColorUser, followBtnAttr;
                             <p class="card-text">${artComment.comments[i].body}</p>
                         </div>
                         <div class="card-footer">
-                            <a href="../html/profile.html?author=${artComment.comments[i].author.username}" class="comment-author">
+                            <a href="https://conduit.productionready.io/html/profile.html?author=${artComment.comments[i].author.username}" class="comment-author">
                                 <img src="${artComment.comments[i].author.image}" class="comment-author-img" />
                             </a>
                             &nbsp;
-                            <a href="../html/profile.html?author=${artComment.comments[i].author.username}" class="comment-author">${artComment.comments[i].author.username}</a>
+                            <a href="https://conduit.productionready.io/html/profile.html?author=${artComment.comments[i].author.username}" class="comment-author">${artComment.comments[i].author.username}</a>
                             <span class="date-posted">${timeComment}</span>
                         </div>
                     </div>

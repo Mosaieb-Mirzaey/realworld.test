@@ -8,7 +8,7 @@ async function getUsername() {
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
     myHeaders.append("Authorization", "Token " + getToken());
-  return   fetch("http://realworld.test/api/user", {
+  return   fetch("https://conduit.productionready.io/api/user", {
         method: 'GET',
         headers: myHeaders,
         redirect: 'follow'

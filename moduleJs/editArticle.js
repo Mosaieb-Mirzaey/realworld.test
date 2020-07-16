@@ -11,7 +11,7 @@ async function getUsername() {
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
     myHeaders.append("Authorization", "Token " + getToken());
-    return   fetch("http://realworld.test/api/user", {
+    return   fetch("https://conduit.productionready.io/api/user", {
         method: 'GET',
         headers: myHeaders,
         redirect: 'follow'
@@ -49,7 +49,7 @@ async function getProfilePage() {
         redirect: 'follow'
     };
 
-    return fetch("http://realworld.test/api/profiles/"+users.user.username, requestOptions)
+    return fetch("https://conduit.productionready.io/api/profiles/"+users.user.username, requestOptions)
 }
 
 async function getProfile() {
@@ -93,7 +93,7 @@ async function getArticleTarget() {
             headers: myHeaders,
         };
 
-        return fetch("http://realworld.test//api/articles/"+slugUrl+"", requestOptions)
+        return fetch("https://conduit.productionready.io/api/articles/"+slugUrl+"", requestOptions)
 
     }
 }
@@ -144,7 +144,7 @@ async function putUpdate() {
         };
 
 
-        return fetch("http://realworld.test/api/articles/"+slugParam[1]+"", requestOptions)
+        return fetch("https://conduit.productionready.io/api/articles/"+slugParam[1]+"", requestOptions)
 
     }
 }
@@ -155,7 +155,7 @@ async function updateArticle() {
         let result = await response.json();
         articleInfoUpdate = result;
 
-        window.location.replace("http://mosaieb.test/html/profile.html?author="+articleInfoUpdate.article.author.username+"");
+        window.location.replace("https://mosaieb-mirzaey.github.io/realworld.test/html/profile.html?author="+articleInfoUpdate.article.author.username+"");
         return articleInfoUpdate
     } catch (error) {
         console.log('error' + error)
@@ -172,20 +172,9 @@ function enterTag(event , i){
         tagLists.innerHTML += `<span class="tag-default tag-pill tagProp"><i class="ion-close-round"></i>${i.value}</span>`;
         tagText.push(i.value);
         i.value = "";
-
-
-
-
     }
 }
 
-
-// async function getTagForPut(){
-//     tagProp = document.querySelectorAll(".tagProp");
-//     tagProp.forEach(function(item){
-//         tagText.push(item.textContent);
-//     })
-// }
 
 //#########################################################    Tag Insert    #############################################################
 
@@ -201,7 +190,7 @@ let tagText = [];
     let formEdit = document.querySelector(".formEdit");
     if (profile.profile.username !== '') {
         document.querySelector(".loading").style.display="initial";
-        document.querySelector(".profileName1").innerHTML = "<a class='nav-link router-link-exact-active' href='../html/profile.html?author="+profile.profile.username+"'>"+profile.profile.username+" </a>";
+        document.querySelector(".profileName1").innerHTML = "<a class='nav-link router-link-exact-active' href='https://mosaieb-mirzaey.github.io/realworld.test/html/profile.html?author="+profile.profile.username+"'>"+profile.profile.username+" </a>";
 
 
         formEdit.innerHTML = `

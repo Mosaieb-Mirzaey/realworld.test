@@ -27,7 +27,7 @@ function signUp() {
         redirect: 'follow'
     };
 
-    return fetch("http://realworld.test/api/users", requestOptions)
+    return fetch("https://conduit.productionready.io/api/users", requestOptions)
 
 }
 
@@ -40,7 +40,7 @@ async function signUpEr(event) {
         if (result.user == result.user){
             alert(result.user.username);
             alert("account is created successful!");
-            window.location.replace("http://mosaieb.test/html/Authentication.html");
+            window.location.replace("https://mosaieb-mirzaey.github.io/realworld.test/html/Authentication.html");
         }else {
             console.log(result.errors);
             er1 = result;

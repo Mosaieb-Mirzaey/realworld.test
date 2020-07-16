@@ -31,7 +31,7 @@ async function getProfilePage() {
         redirect: 'follow'
     };
 
-    return fetch("http://realworld.test/api/profiles/"+authorUrl, requestOptions)
+    return fetch("https://conduit.productionready.io/api/profiles/"+authorUrl, requestOptions)
 }
 
 async function getProfile() {
@@ -82,7 +82,7 @@ async function postPublish() {
             body: raw,
         };
 
-        return fetch("http://realworld.test/api/articles", requestOptions)
+        return fetch("https://conduit.productionready.io/api/articles", requestOptions)
 
     }
 }
@@ -93,7 +93,7 @@ async function publishArticle() {
         let result = await response.json();
         articleInfoPublish = result;
 
-        window.location.replace("http://mosaieb.test/html/profile.html?author="+articleInfoPublish.article.author.username+"");
+        window.location.replace("https://mosaieb-mirzaey.github.io/realworld.test/html/profile.html?author="+articleInfoPublish.article.author.username+"");
         return articleInfoPublish
     } catch (error) {
         console.log('error' + error)
@@ -131,8 +131,8 @@ let tagText = [];
     let formEdit = document.querySelector(".formEdit");
     if (profile.profile.username !== '') {
         document.querySelector(".loading").style.display="initial";
-        document.querySelector(".profileName1").innerHTML = "<a class='nav-link router-link-exact-active' href='../html/profile.html?author="+profile.profile.username+"'>"+profile.profile.username+" </a>";
-        document.querySelector(".newArticle").setAttribute("href","newArticle.html?author="+profile.profile.username+"");
+        document.querySelector(".profileName1").innerHTML = "<a class='nav-link router-link-exact-active' href='https://mosaieb-mirzaey.github.io/realworld.test/html/profile.html?author="+profile.profile.username+"'>"+profile.profile.username+" </a>";
+        document.querySelector(".newArticle").setAttribute("href","https://mosaieb-mirzaey.github.io/realworld.test/html/newArticle.html?author="+profile.profile.username+"");
 
         formEdit.innerHTML = `
                         <fieldset>

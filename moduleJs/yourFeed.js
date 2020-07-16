@@ -12,7 +12,7 @@ async function getUsername() {
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
     myHeaders.append("Authorization", "Token " + getToken());
-    return   fetch("http://realworld.test/api/user", {
+    return   fetch("https://conduit.productionready.io/api/user", {
         method: 'GET',
         headers: myHeaders,
     });
@@ -45,7 +45,7 @@ async function feed(){
         headers: myHeaders,
     };
 
-    return  fetch("http://realworld.test/api/articles/feed", requestOptions)
+    return  fetch("https://conduit.productionready.io/api/articles/feed", requestOptions)
 }
 async function feedArt(){
     try{
@@ -85,7 +85,7 @@ function favoritePost(slug , btnI) {
             redirect: 'follow'
         };
 
-        fetch("http://realworld.test/api/articles/"+slug+"/favorite", requestOptions)
+        fetch("https://conduit.productionready.io/api/articles/"+slug+"/favorite", requestOptions)
             .then(response => response.text())
             .then(result => {
                 console.log(result);
@@ -119,7 +119,7 @@ function favoritePost(slug , btnI) {
             redirect: 'follow'
         };
 
-        fetch("http://realworld.test/api/articles/"+slug+"/favorite", requestOptions)
+        fetch("https://conduit.productionready.io/api/articles/"+slug+"/favorite", requestOptions)
             .then(response => response.text())
             .then(result => {
                 console.log(result);
@@ -156,7 +156,7 @@ async function popularTagGet() {
         redirect: 'follow'
     };
 
-    return fetch("http://realworld.test/api/tags", requestOptions)
+    return fetch("https://conduit.productionready.io/api/tags", requestOptions)
 }
 
 async function tagPopularGet(){
@@ -194,7 +194,7 @@ var favoriteBtnColorAll;
         document.querySelector(".loading").style.display="initial";
         document.querySelector(".listNav").innerHTML = `
                 <li class="nav-item">
-                    <a class="nav-link active" href="index.html">Home</a>
+                    <a class="nav-link active" href="https://mosaieb-mirzaey.github.io/realworld.test/index.html?page=1">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="">
@@ -202,17 +202,17 @@ var favoriteBtnColorAll;
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="html/setting.html">
+                    <a class="nav-link" href="https://mosaieb-mirzaey.github.io/realworld.test/html/setting.html">
                         <i class="ion-gear-a"></i>&nbsp;Settings
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class='nav-link' href="html/profile.html?author=${users.user.username}">${users.user.username}</a>
+                    <a class='nav-link' href="https://mosaieb-mirzaey.github.io/realworld.test/html/profile.html?author=${users.user.username}">${users.user.username}</a>
                 </li>
         `;
 
         let globalFeed =document.querySelector('.globalFeed');
-        globalFeed.setAttribute("href" , "../index.html?author="+users.user.username+"")
+        globalFeed.setAttribute("href" , "https://mosaieb-mirzaey.github.io/realworld.test/index.html?author="+users.user.username+"")
 
 
 
@@ -251,10 +251,10 @@ var favoriteBtnColorAll;
 
                    <div class="article-preview">
                         <div class="article-meta">
-                            <a href="http://mosaieb.test/html/profile.html" class="router-link-exact-active router-link-active">
+                            <a href="https://mosaieb-mirzaey.github.io/realworld.test/html/profile.html" class="router-link-exact-active router-link-active">
                                 <img src="${feedList.articles[c].author.image}"></a>
                             <div class="info">
-                            <a href="http://mosaieb.test/html/profile.html?author=${feedList.articles[c].author.username}">
+                            <a href="https://mosaieb-mirzaey.github.io/realworld.test/html/profile.html?author=${feedList.articles[c].author.username}">
                                 ${feedList.articles[c].author.username}
                             </a>
                             <span class="date">${timeArticle}</span>
@@ -263,7 +263,7 @@ var favoriteBtnColorAll;
                                 <i class="ion-heart"></i><span class="counter"> ${feedList.articles[c].favoritesCount} </span>
                             </button>
                         </div>
-                        <a href="../html/articles.html?slug=${feedList.articles[c].slug}" class="preview-link">
+                        <a href="https://mosaieb-mirzaey.github.io/realworld.test/html/articles.html?slug=${feedList.articles[c].slug}" class="preview-link">
                             <h1>${feedList.articles[c].title}</h1>
                             <p>${feedList.articles[c].description}</p>
                             <span>Read more...</span>
