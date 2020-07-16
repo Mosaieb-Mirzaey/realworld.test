@@ -41,7 +41,7 @@ var logOutBtn = document.querySelector(".logOutBtn");
 
     if (users.user.username !== ""){
         document.querySelector("#setting > nav > div > ul > li:nth-child(2) > a").innerHTML = `<i class="ion-compose"></i>&nbsp;New Article`;
-        document.querySelector("#setting > nav > div > ul > li:nth-child(4)").innerHTML = "<a class='nav-link router-link-exact-active' href='https://mosaieb-mirzaey.github.io/realworld.test/html/profile.html'>"+users.user.username+" </a>";
+        document.querySelector("#setting > nav > div > ul > li:nth-child(4)").innerHTML = "<a class='nav-link router-link-exact-active' href='https://mosaieb-mirzaey.github.io/realworld.test/html/profile.html?author="+users.user.username+"'>"+users.user.username+" </a>";
         document.querySelector("#profile > div > div.user-info > div > div > div > button");
         inputImage.value = users.user.image;
         inputUsername.value = users.user.username;
