@@ -12,6 +12,8 @@ async function listArticleGlobal() {
         headers: myHeaders,
     };
 
+    console.log(getUrl)
+
     return fetch("https://conduit.productionready.io/api/articles?offset="+((getUrl * 5) - 5)+"&limit=40", requestOptions)
 }
 
